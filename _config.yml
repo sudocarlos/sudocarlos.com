@@ -1,5 +1,4 @@
 ---
 include: [".well-known"]
-github: [metadata]
 incremental: true
 force_polling: true
