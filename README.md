@@ -1,5 +1,5 @@
 ---
-title: Carlos on the web
+title: sudocarlos.com
 permalink: /
 ---
 # Carlos on the web
