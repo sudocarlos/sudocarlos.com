@@ -1,0 +1,18 @@
+{
+  "names": {
+    "_": "03612b0ebae0ec8d30031c440ba087ff9bd162962dffba4b6e021ec4afd71216"
+  },
+  "relays": {
+    "03612b0ebae0ec8d30031c440ba087ff9bd162962dffba4b6e021ec4afd71216": [
+      "wss://eden.nostr.land",
+      "wss://relay.damus.io",
+      "wss://nostr.oxtr.dev",
+      "wss://nos.lol",
+      "wss://relay.nostr.bg",
+      "wss://nostr.zebedee.cloud",
+      "wss://purplepag.es",
+      "wss://relay.current.fyi",
+      "wss://relay.snort.social"
+    ]
+  }
+}

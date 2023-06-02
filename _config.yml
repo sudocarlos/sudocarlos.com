@@ -1,0 +1,4 @@
+---
+include: [".well-known"]
+incremental: true
+force_polling: true
