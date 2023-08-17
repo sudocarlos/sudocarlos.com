@@ -4,6 +4,9 @@
   },
   "relays": {
     "03612b0ebae0ec8d30031c440ba087ff9bd162962dffba4b6e021ec4afd71216": [
+      "wss://nostr.mutinywallet.com",
+      "wss://feeds.nostr.band/nostrhispano",
+      "wss://nostr.sudocarlos.com",
       "wss://eden.nostr.land",
       "wss://relay.damus.io",
       "wss://nostr.oxtr.dev",
