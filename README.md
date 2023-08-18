@@ -4,7 +4,7 @@ permalink: /
 ---
 # sudocarlos
 
-## [nostr](https://snort.social/p/npub1qdsjkr46urkg6vqrr3zqhgy8l7dazc5k9hlm5jmwqg0vft7hzgtqamgfw3)  
+## [nostr](https://primal.net/sudocarlos)  
 [enable](damus:nostr:nscript1qpshxmgpqqqqqqgtqfsqxlml0uqh7cqqqqppsqg9dehhxarjpehx7um5wf0hxet5ta3x7mmvqqqqxqspqyzsxqgqqyrs5qgxd4jk6mmj0ypqqzqpqyxqzqs2z5q3xqzp5qyyr8qg9qpqqsgpweqsqyqqrg9skggzqpqcczqtqywqqsvcpq93xqsqqqqqcqqqqphqqmcq0gqxzqrsqpesehczp5)/[disable](damus:nostr:nscript1qpshxmgpqqqqqqgtqfsqxlml0uqh7cqqqqppsqg9dehhxarjpehx7um5wf0hxet5ta3x7mmvqqqqxqspqyzsxqgqqyrs5qgxd4jk6mmj0ypqqzqpqyxqzqs2z5q3xqzp5qyyr8qg9qpqqsgpweqszyqqrg9skggzqpqcczqtqywqqsvcpq93xqsqqqqqcqqqqphqqmcq0gqxzqrsqpest0rum4) [damus](https://apps.apple.com/us/app/damus/id1628663131) zaps ⚡
 - relay: [wss://nostr.sudocarlos.com](wss://nostr.sudocarlos.com)
 - [suhailsaqan/damus-nostrscript](https://github.com/suhailsaqan/damus-nostrscript/)
