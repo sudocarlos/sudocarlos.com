@@ -36,12 +36,13 @@ connection to expose services on the Internet using a VPS.
 
         apt install socat
 
-1. Exit and allow your Star9 to reboot
+1. Exit and allow your Start9 to reboot
 
         exit
 
-1. Create a socat systemd service
+1. SSH to your Start9 again, become root user and create a socat systemd service
 
+        sudo -i
         cat << 'EOF' > /lib/systemd/system/socat@.service
 
         [Unit]
