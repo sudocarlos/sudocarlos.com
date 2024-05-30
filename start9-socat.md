@@ -7,7 +7,6 @@ that will describe how to install and connect to Tailscale so that you can use t
 exposed ports from any other device in your tailnet, and how to use that Tailscale
 connection to expose services on the Internet using a VPS.
 
-
 1. Create a backup: https://docs.start9.com/0.3.5.x/user-manual/backups/backup-create
 1. SSH to your Start9: https://docs.start9.com/0.3.5.x/user-manual/ssh
 1. Enable the chroot-and-upgrade context
@@ -111,7 +110,7 @@ connection to expose services on the Internet using a VPS.
 
         tcp        0      0 0.0.0.0:8081            0.0.0.0:*               LISTEN      2795077/socat       
 
-1. Enable the service service to start automatically
+1. Enable the socat service to start automatically
 
         systemctl enable socat@btcpayserver.service
 
@@ -121,3 +120,7 @@ connection to expose services on the Internet using a VPS.
             ip route | grep default | awk '{print $9}'
 
 1. Create more services by repeating the previous steps, starting from 9
+
+# Resources
+
+- https://community.start9.com/t/diy-exposing-electrs-and-bitcoind-over-lan-in-startos-0-3/754  
