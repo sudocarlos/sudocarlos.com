@@ -14,12 +14,12 @@ upgrade HTTP connections to HTTPS.
 
 # Usage
 
-1. View the script at https://gist.github.com/sudocarlos/6d0e640f25101b0017e68ebd4c08c147
-and make sure you're comfortable with what it's doing
+1. View the script, [create_nginx_service.sh](create_nginx_service.sh) and make
+sure you're comfortable with what it's doing
 
 1. Download the script
 
-        wget https://gist.github.com/sudocarlos/6d0e640f25101b0017e68ebd4c08c147/raw/287b9ac1c4456ad3cbe3e433d00b2432d9c4397e/create_nginx_service.sh
+        wget https://raw.githubusercontent.com/sudocarlos/sudocarlos.com/main/create_nginx_service.sh
 
 1. Make the script executable
 
@@ -52,4 +52,4 @@ and make sure you're comfortable with what it's doing
 
 # Resources
 
-- [https://docs.btcpayserver.org/Deployment/ReverseProxyToTor]()
+- https://docs.btcpayserver.org/Deployment/ReverseProxyToTor
