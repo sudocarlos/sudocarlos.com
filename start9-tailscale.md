@@ -32,9 +32,9 @@ connection to expose services on the Internet using a VPS.
 
         sudo -i
 
-1. Install tailscale
+1. Install tailscale ([View script source](https://github.com/tailscale/tailscale/blob/main/scripts/installer.sh))
 
-        apt install socat
+        curl -fsSL https://tailscale.com/install.sh | sh
 
 1. Exit and allow your Start9 to reboot
 
