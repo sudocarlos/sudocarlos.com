@@ -4,19 +4,14 @@
   },
   "relays": {
     "03612b0ebae0ec8d30031c440ba087ff9bd162962dffba4b6e021ec4afd71216": [
-      "wss://eden.nostr.land",
-      "wss://feeds.nostr.band/nostrhispano",
-      "wss://feeds.nostr.band/popular",
-      "wss://nos.lol",
-      "wss://nostr.mutinywallet.com",
-      "wss://nostr.sudocarlos.com",
-      "wss://nostr.zebedee.cloud",
-      "wss://purplepag.es",
-      "wss://relay.current.fyi",
-      "wss://relay.damus.io",
-      "wss://relay.nostr.bg",
-      "wss://relay.primal.net",
-      "wss://relay.snort.social"
+      "wss://nos.lol/",
+      "wss://nostr.land/",
+      "wss://nostr.sudocarlos.com/",
+      "wss://relay.damus.io/",
+      "wss://relay.getalby.com/v1",
+      "wss://relay.primal.net/",
+      "wss://relay.snort.social/",
+      "wss://relay.mostr.pub/"
     ]
   }
 }
