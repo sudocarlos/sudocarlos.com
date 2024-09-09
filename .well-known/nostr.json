@@ -4,12 +4,12 @@
   },
   "relays": {
     "03612b0ebae0ec8d30031c440ba087ff9bd162962dffba4b6e021ec4afd71216": [
-      "wss://nos.lol/",
       "wss://nostr.land/",
-      "wss://wot.sudocarlos.com/",
+      "wss://nostr.wine",
       "wss://relay.damus.io/",
       "wss://relay.getalby.com/v1",
-      "wss://nostr.wine"
+      "wss://rss.nos.social",
+      "wss://wot.sudocarlos.com/"
     ]
   }
 }
