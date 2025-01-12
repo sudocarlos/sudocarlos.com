@@ -52,9 +52,9 @@ fi
 if ! grep -q "map \$http_x_forwarded_proto \$proxy_x_forwarded_proto" /etc/nginx/conf.d/map.conf; then
 echo "Create a variable mapping to forward the correct protocol setting..."
 cat << EOF >> /etc/nginx/conf.d/map.conf
-map $http_x_forwarded_proto $proxy_x_forwarded_proto {
-  default $http_x_forwarded_proto;
-  ''      $scheme;
+map \$http_x_forwarded_proto \$proxy_x_forwarded_proto {
+  default \$http_x_forwarded_proto;
+  ''      \$scheme;
 }
 EOF
 fi
@@ -62,7 +62,7 @@ fi
 if ! grep -q "map \$http_upgrade \$connection_upgrade" /etc/nginx/conf.d/map.conf; then
 echo "check if the Upgrade header is sent by the client..."
 cat << EOF >> /etc/nginx/conf.d/map.conf
-map $http_upgrade $connection_upgrade {
+map \$http_upgrade \$connection_upgrade {
   default upgrade;
   ''      close;
 }
@@ -127,7 +127,10 @@ fi
 echo "add the https server part at the end of /etc/nginx/sites-available/$URL.conf..."
 cat << EOF >> /etc/nginx/sites-available/$URL.conf
 server {
-  listen 443 ssl http2;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  http2 on;
+
   server_name $URL;
 
   # SSL settings
@@ -150,20 +153,47 @@ server {
   resolver 8.8.8.8 8.8.4.4 valid=300s;
   resolver_timeout 30s;
 
-  add_header Strict-Transport-Security "max-age=63072000" always;
-  add_header Content-Security-Policy "frame-ancestors 'self';";
-  add_header X-Content-Type-Options nosniff;
+  # Security / XSS Mitigation Headers
+  # NOTE: X-Frame-Options may cause issues with the webOS app
+  add_header X-Frame-Options "SAMEORIGIN";
+  add_header X-Content-Type-Options "nosniff";
 
-  # Proxy requests to the socat service
+  # Permissions policy. May cause issues with some clients
+  add_header Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), clipboard-read=(), display-capture=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), serial=(), sync-xhr=(), usb=(), xr-spatial-tracking=()" always;
+
+  # Content Security Policy
+  # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+  # Enforces https content and restricts JS/CSS to origin
+  # External Javascript (such as cast_sender.js for Chromecast) must be whitelisted.
+  # NOTE: The default CSP headers may cause issues with the webOS app
+  add_header Content-Security-Policy "default-src https: data: blob: ; img-src 'self' https://* ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
+
   location / {
+    # Proxy main Jellyfin traffic
     proxy_pass $SERVICE_ADDRESS;
-    proxy_http_version 1.1;
     proxy_set_header Host \$host;
     proxy_set_header X-Real-IP \$remote_addr;
-    proxy_set_header X-Forwarded-For \$remote_addr;
-    proxy_set_header X-Forwarded-Proto \$proxy_x_forwarded_proto;
-    proxy_set_header Upgrade \$http_upgrade;
-    proxy_set_header Connection \$connection_upgrade;
+    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto \$scheme;
+    proxy_set_header X-Forwarded-Protocol \$scheme;
+    proxy_set_header X-Forwarded-Host \$http_host;
+
+    # Disable buffering when the nginx proxy gets very resource heavy upon streaming
+    proxy_buffering off;
+  }
+
+  location /socket {
+      # Proxy Jellyfin Websockets traffic
+      proxy_pass $SERVICE_ADDRESS;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade \$http_upgrade;
+      proxy_set_header Connection "upgrade";
+      proxy_set_header Host \$host;
+      proxy_set_header X-Real-IP \$remote_addr;
+      proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto \$scheme;
+      proxy_set_header X-Forwarded-Protocol \$scheme;
+      proxy_set_header X-Forwarded-Host \$http_host;
   }
 }
 EOF
