@@ -2,3 +2,6 @@
 include: [".well-known"]
 incremental: true
 force_polling: true
+remote_theme: pages-themes/hacker@v0.2.0
+plugins:
+- jekyll-remote-theme
