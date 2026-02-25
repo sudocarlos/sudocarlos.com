@@ -17,3 +17,9 @@ nostr relay:
 
 - [haven-docker](https://github.com/sudocarlos/haven-docker)  
     Haven nostr relay deployed with docker
+
+- [tailrelay](https://github.com/sudocarlos/tailrelay)  
+    Docker container that exposes local services to your Tailscale network
+
+- [tailrelay-startos](https://github.com/sudocarlos/tailrelay-startos)  
+    StartOS wrapper for tailrelay
