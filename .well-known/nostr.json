@@ -1,13 +1,19 @@
 {
   "names": {
     "_": "03612b0ebae0ec8d30031c440ba087ff9bd162962dffba4b6e021ec4afd71216",
-    "sorta": "8a5cca7aab2a4edf4a42e4c1a249398500473763e63ad5cf0836686f76193ad0"
+    "sorta": "8a5cca7aab2a4edf4a42e4c1a249398500473763e63ad5cf0836686f76193ad0",
+    "sudoagent": "3408529aaf3ad39b4bb8a1458550992c994fafdf264c5a92b47818c7cc508f7f"
   },
   "relays": {
     "03612b0ebae0ec8d30031c440ba087ff9bd162962dffba4b6e021ec4afd71216": [
       "wss://wot.sudocarlos.com",
       "wss://nostr.sudocarlos.com",
       "wss://nostr.sudocarlos.com/inbox"
+    ],
+    "3408529aaf3ad39b4bb8a1458550992c994fafdf264c5a92b47818c7cc508f7f": [
+      "wss://wot.sudocarlos.com",
+      "wss://relay.primal.net",
+      "wss://nostr.sudocarlos.com"
     ]
   }
 }
